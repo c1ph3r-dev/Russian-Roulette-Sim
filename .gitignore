@@ -382,5 +382,8 @@ MigrationBackup/
 *.out
 *.app
 
+# Project Specific
+*.txt
+
 bin/
 bin-int/
