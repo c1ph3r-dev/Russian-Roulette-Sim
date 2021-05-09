@@ -18,7 +18,7 @@ namespace rr
 		int p1Wins = 0, p2Wins = 0;
 	public:
 		Data() {}
-		void DataAdd(Data& obj1, Data& obj2);
+		void DataAdd(Data& obj2);
 		
 		void addData(int x);
 		void calc(float maxC);

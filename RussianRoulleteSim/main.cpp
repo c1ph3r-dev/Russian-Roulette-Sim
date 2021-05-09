@@ -6,10 +6,10 @@
 
 #include "rrData.h"
 
-#define MAX_COUNT_ 1000000000
+#define MAX_COUNT_ 1000000
 
 #define NUM_OF_THREADS 10
-#define BASE_SEED 374
+#define BASE_SEED 467
 
 #define COUNT_PER_THREAD (MAX_COUNT_ / NUM_OF_THREADS)
 
@@ -76,19 +76,6 @@ int main()
 	rr::Data* data9 = new rr::Data;
 	rr::Data* data10 = new rr::Data;
 
-	std::fstream file;
-	
-	file.open("raw_data.txt", std::ios::out);
-
-	if (!file.is_open())
-	{
-		std::cout << "File raw_data.txt could not be created!" << std::endl;
-		return 1;
-	}
-
-	file << "Raw Data disabled!";
-	file.close();
-
 	std::thread Thread1(run, std::ref(*data1), 0, std::ref(check1));
 	std::thread Thread2(run, std::ref(*data2), 1, std::ref(check2));
 	std::thread Thread3(run, std::ref(*data3), 2, std::ref(check3));
@@ -116,28 +103,35 @@ int main()
 		
 	}
 
-	data.DataAdd(data, *data1);
-	data.DataAdd(data, *data2);
-	data.DataAdd(data, *data3);
-	data.DataAdd(data, *data4);
-	data.DataAdd(data, *data5);
-	data.DataAdd(data, *data6);
-	data.DataAdd(data, *data7);
-	data.DataAdd(data, *data8);
-	data.DataAdd(data, *data9);
-	data.DataAdd(data, *data10);
-
+	data.DataAdd(*data1);
 	delete data1;
-	delete data2;
-	delete data3;
-	delete data4;
-	delete data5;
-	delete data6;
-	delete data7;
-	delete data8;
-	delete data9;
-	delete data10;
 
+	data.DataAdd(*data2);
+	delete data2;
+
+	data.DataAdd(*data3);
+	delete data3;
+
+	data.DataAdd(*data4);
+	delete data4;
+
+	data.DataAdd(*data5);
+	delete data5;
+
+	data.DataAdd(*data6);
+	delete data6;
+
+	data.DataAdd(*data7);
+	delete data7;
+
+	data.DataAdd(*data8);
+	delete data8;
+
+	data.DataAdd(*data9);
+	delete data9;
+
+	data.DataAdd(*data10);
+	delete data10;
 
 	data.calc(MAX_COUNT_);
 	

@@ -4,11 +4,11 @@
 
 namespace rr
 {
-	void Data::DataAdd(Data& obj1, Data& obj2)
+	void Data::DataAdd(Data& obj2)
 	{
-		obj1.avgC += obj2.avgC;
-		obj1.p1Wins += obj2.p1Wins;
-		obj1.p2Wins += obj2.p2Wins;
+		avgC += obj2.avgC;
+		p1Wins += obj2.p1Wins;
+		p2Wins += obj2.p2Wins;
 	}
 
 	void Data::addData(int x)
@@ -30,7 +30,7 @@ namespace rr
 		avg = avgC / maxC;
 
 		percentage1 = (p1Wins / maxC) * 100;
-		percentage2 = (p2Wins / maxC) * 100;
+		percentage2 = 100 - percentage1;
 	}
 
 	bool Data::outData()
